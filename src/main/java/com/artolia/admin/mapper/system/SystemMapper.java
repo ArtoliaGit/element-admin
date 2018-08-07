@@ -14,8 +14,14 @@ import com.artolia.admin.domain.system.Roles;
 @Mapper
 public interface SystemMapper {
 
-	@Select("select * from roles")
-	public List<Roles> getRoleList();
+	@Select("<script>select * from roles"
+			+ "<where>"
+			+ "<if test = 'code != null'>"
+			+ " where code = #{code}"
+			+ "</if>"
+			+ "</where>"
+			+ "</script>")
+	public List<Roles> getRoleList(String code);
 	
 	@Insert("insert into roles(id, code, name) values(#{id}, #{code}, #{name})")
 	@SelectKey(statement = "select replace(uuid(),'-','') from dual", keyProperty = "id", before = true, resultType = java.lang.String.class)

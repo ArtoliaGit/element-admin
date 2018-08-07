@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono;
 
 public interface SystemService {
 
-	Mono<String> getRoleList();
+	Mono<String> getRoleList(String code);
 	
 	Mono<String> insertRoles(Roles roles);
 	

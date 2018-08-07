@@ -19,10 +19,10 @@ public class SystemServiceImpl implements SystemService {
 	private SystemMapper systemMapper;
 
 	@Override
-	public Mono<String> getRoleList() {
+	public Mono<String> getRoleList(String code) {
 		Result result = new Result();
 		try {
-			List<Roles> roleList = systemMapper.getRoleList();
+			List<Roles> roleList = systemMapper.getRoleList(code);
 			result.setCode(200);
 			result.setData(roleList);
 			result.setMessage("查询成功");

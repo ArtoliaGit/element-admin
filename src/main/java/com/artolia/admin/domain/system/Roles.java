@@ -1,7 +1,14 @@
 package com.artolia.admin.domain.system;
 
-public class Roles {
+import org.springframework.security.core.GrantedAuthority;
 
+public class Roles implements GrantedAuthority {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7214217081569495326L;
+	
 	private String id;
 	private String code;
 	private String name;
@@ -22,5 +29,10 @@ public class Roles {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	@Override
+	public String getAuthority() {
+		return code;
 	}
 }

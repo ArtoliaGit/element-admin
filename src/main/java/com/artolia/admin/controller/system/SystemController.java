@@ -20,8 +20,8 @@ public class SystemController {
 	private SystemService systemService;
 	
 	@GetMapping("/getRoleList")
-	public Mono<String> getRoleList() {
-		return this.systemService.getRoleList();
+	public Mono<String> getRoleList(String code) {
+		return this.systemService.getRoleList(code);
 	}
 	
 	@PostMapping("/insertRoles")
